@@ -1,0 +1,58 @@
+body {
+  background: black;
+}
+h1{
+  width: 300px;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 30px;
+  margin: 20px auto;
+  padding: 10px;
+}
+.limit{
+  width: 600px;
+  height: 500px;
+  margin: 20px auto;
+}
+
+.container {
+  width: 600px;
+  height: 500px;
+  border-radius: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #808080;
+  margin-top: 20px ;
+}
+
+.frame {
+  width: 504px;
+  height: 408px;
+  background: #80FF00;
+}
+.textCenter{
+  text-align: center;
+}
+.textSpace{
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+}
+
+kbd {	
+
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 4px 12px;
+  margin: 0 4px;
+  background: #fff;
+  border-radius: 3px;
+  font: 18px/24px Helvetica, Arial, serif;
+  text-align: center;
+  color: #666;
+
+}
