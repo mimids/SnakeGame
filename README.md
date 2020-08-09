@@ -13,10 +13,6 @@ There is only one apple at any given time. When the apple is eaten, the snake gr
 
 If you hit a wall or the snake itself the game is over. 
 
-# Author
-
-* Michiyo
-
 # License
 
 "Snake Game" is under [Open Public License version 1.0 ](https://directory.fsf.org/wiki/License:OPL-1.0).
