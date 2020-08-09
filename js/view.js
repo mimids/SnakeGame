@@ -6,10 +6,6 @@ class View {
     this.deltaTime = 200;
 
     //---------------------------
-    // Key lListeners set
-    //---------------------------
-    this.keyListeners();
-    //---------------------------
     // Event InterVal set
     //---------------------------
     this.timer = setInterval(() => {
@@ -18,20 +14,20 @@ class View {
       // console.log("this.timer -> " + this.snake.body.x[0] + "=" + this.apple.body.x + " " + this.snake.body.y[0] + "=" + this.apple.body.y)
       this.snake.gameOverSet();
 
-      
+
       // Set New 
       this.apple.setNewApple(this.snake, this.apple, this.alert);
       this.alert.textContent = "Score : " + this.snake.score;
-      
+
       if (this.snake.gameOver) {
         this.stopTimer(this.timer);
-        this.alert.textContent = "Geme Over!!! Score : " + this.snake.score;
-      if (this.snake.gameClear) {
-        this.stopTimer(this.timer);
-        this.alert.textContent = "Game clear!! You are win!! ";
+        this.alert.innerHTML = "<p>Game Over!!! Score : " + this.snake.score+"<p/><p> Press <kbd>Ctrl</kbd>+<kbd>r</kbd> to continue</p>";
+        if (this.snake.gameClear) {
+          this.stopTimer(this.timer);
+          this.alert.textContent = "Game clear!! You are win!! ";
+        }
       }
-      }
-      
+
       this.drawSnake(this.snake);
       this.drawApple(this.apple);
 
@@ -41,32 +37,9 @@ class View {
   //--------------------------
   // func _initLocalListeners() 
   //--------------------------
-  keyListeners() {
+  bindKeyListeners(handler) {
     window.addEventListener('keydown', e => {
-      console.log("View -> constructor -> e.key",e.keyCode+" = "+e.code+" "+e.key)
-      // interdiction U-turn
-      if(!this.snake.check){
-      if ((e.key === '8'||e.code==='ArrowUp'||e.KeyCode===38) && this.snake.direction != "down") {
-        this.check=1;
-        this.snake.direction = "up";
-        return;
-      }
-      if ((e.key === '4'||e.code==='ArrowLeft'||e.KeyCode===37) && this.snake.direction != "right") {
-        this.check=1;
-        this.snake.direction = "left";
-        return;
-      }
-      if ((e.key === '2'||e.code==='ArrowDown'||e.KeyCode===40) && this.snake.direction != "up") {
-        this.check=1;
-        this.snake.direction = "down";
-        return;
-      }
-      if ((e.key === '6'||e.code==='ArrowRight'||e.KeyCode===39) && this.snake.direction != "left") {
-        this.check=1;
-        this.snake.direction = "right";
-        return;
-      }}
-    
+      handler(this.snake, e);
     });
   }
   //-----------------------

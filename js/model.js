@@ -12,6 +12,40 @@ class Model {
     this.snake = this.createSnake(this.canvasZone);
     this.apple = this.createApple(this.canvasZone);
   }// END constructoe
+
+
+  //---------------------------
+  // keyListeners
+  //---------------------------
+
+  keyListeners(snake,e) {
+  
+      // interdiction U-turn
+      if(!snake.check){
+        console.log("View -> constructor -> e.key",e.keyCode+" = "+e.code+" "+e.key)
+      if ((e.key === '8'||e.code==='ArrowUp'||e.KeyCode===38) && snake.direction != "down") {
+        snake.check=1;
+        snake.direction = "up";
+        return;
+      }
+      if ((e.key === '4'||e.code==='ArrowLeft'||e.KeyCode===37) && snake.direction != "right") {
+        snake.check=1;
+        snake.direction = "left";
+        return;
+      }
+      if ((e.key === '2'||e.code==='ArrowDown'||e.KeyCode===40) && snake.direction != "up") {
+        snake.check=1;
+        snake.direction = "down";
+        return;
+      }
+      if ((e.key === '6'||e.code==='ArrowRight'||e.KeyCode===39) && snake.direction != "left") {
+        snake.check=1;
+        snake.direction = "right";
+        return;
+      }}
+    
+  
+  }
   //---------------------------
   // Snake 
   //---------------------------
